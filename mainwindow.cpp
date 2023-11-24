@@ -44,6 +44,21 @@ void MainWindow::openFileInTextEdit(QString path){
     }
 }
 
+void MainWindow::writeFile(QString path, QString data){
+    QFile file(path);
+    QMessageBox msg;
+    if (file.open(QFile::WriteOnly)){
+        QTextStream outStream(&file);
+        outStream << data;
+        file.close();
+        msg.setText("File modified successfully!");
+        msg.exec();
+    }else{
+        msg.setText("Couldn't edit the file!");
+        msg.exec();
+    }
+}
+
 void MainWindow::on_list_currentTextChanged(const QString &currentText)
 {
     QString absPath = g_directory + "/" + currentText;
@@ -78,3 +93,11 @@ void MainWindow::on_g_directory_changed(QString new_g_dir)
 {
     ui->g_dir->setText(new_g_dir);
 }
+
+void MainWindow::on_save_clicked()
+{
+    QString new_content = ui->content->toPlainText();
+    QString path = g_directory + "/" + ui->list->currentItem()->text();
+    writeFile(path, new_content);
+}
+

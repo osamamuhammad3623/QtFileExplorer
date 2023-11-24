@@ -6,6 +6,7 @@
 #include <QDir>
 #include <QTextStream>
 #include <QFileInfo>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,6 +32,9 @@ private slots:
     void on_prevDir_clicked();
     void on_g_directory_changed(QString new_g_dir);
     void openFileInTextEdit(QString path);
+    void writeFile(QString path, QString data);
+
+    void on_save_clicked();
 
 private:
     Ui::MainWindow *ui;
