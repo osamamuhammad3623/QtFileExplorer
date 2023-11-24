@@ -11,3 +11,6 @@
 - QTextStream
 - QFileInfo
 - QMessageBox
+
+## UI
+![UI design](ui_screenshot.png)
