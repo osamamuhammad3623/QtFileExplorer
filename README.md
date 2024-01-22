@@ -1,4 +1,4 @@
-# File Explorer usign Qt & C++
+# File Explorer using Qt & C++
 
 ## Features:
 - Loading a specific directory to start navigating.
